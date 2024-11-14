@@ -1,0 +1,9 @@
+All experiments complete
+Experiment Setup:
+ - episodes:2000
+ - sim_speed:0.008
+
+[Q-Learning on Task 2] : Q-Learning : max-rew=0.300 med-3=0.300 var-3=0.000 max-episode-len=224.0
+[Double Q-Learning on Task 2] : Double Q-Learning : max-rew=0.200 med-3=-0.200 var-3=0.327 max-episode-len=192.0
+[SARSA on Task 2] : SARSA : max-rew=0.300 med-3=0.300 var-3=0.020 max-episode-len=321.0
+[Expected SARSA on Task 2] : Expected SARSA : max-rew=0.300 med-3=0.300 var-3=0.000 max-episode-len=349.0
