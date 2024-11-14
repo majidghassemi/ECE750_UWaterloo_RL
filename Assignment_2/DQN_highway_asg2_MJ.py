@@ -1,9 +1,7 @@
 import gymnasium as gym
 from gymnasium.wrappers import RecordVideo
 from stable_baselines3 import A2C
-
 import highway_env  # noqa: F401
-
 
 TRAIN = True
 
@@ -12,7 +10,7 @@ if __name__ == "__main__":
     env = gym.make("intersection-v1", render_mode="rgb_array")
     obs, info = env.reset()
 
-    # Create the model
+    # Create the model and specify GPU usage
     model = A2C(
         "MlpPolicy",
         env,
@@ -28,6 +26,7 @@ if __name__ == "__main__":
         normalize_advantage=True,
         verbose=1,
         tensorboard_log="highway_intersection_A2C/",
+        device="cuda"  # Ensure GPU usage
     )
 
     # Train the model
@@ -37,7 +36,7 @@ if __name__ == "__main__":
         del model
 
     # Run the trained model and record video
-    model = A2C.load("highway_intersection_A2C/model", env=env)
+    model = A2C.load("highway_intersection_A2C/model", env=env, device="cuda")
     env = RecordVideo(
         env, video_folder="highway_intersection_A2C/videos", episode_trigger=lambda e: True
     )
