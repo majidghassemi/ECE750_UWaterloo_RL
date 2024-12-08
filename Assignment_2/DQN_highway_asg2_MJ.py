@@ -26,7 +26,7 @@ if __name__ == "__main__":
         normalize_advantage=True,
         verbose=1,
         tensorboard_log="highway_intersection_A2C/",
-        device="cuda"  # Ensure GPU usage
+        # device="cuda"  # Ensure GPU usage
     )
 
     # Train the model
